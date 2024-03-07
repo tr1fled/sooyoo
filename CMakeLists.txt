@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2018 yuzu Emulator Project
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+# Modified by JuanCStar on 2024/03/06
+
 cmake_minimum_required(VERSION 3.22)
 
 project(yuzu)
@@ -126,7 +128,7 @@ if (YUZU_USE_BUNDLED_VCPKG)
         set(VCPKG_DOWNLOADS_PATH ${PROJECT_SOURCE_DIR}/externals/vcpkg/downloads)
         set(NASM_VERSION "2.16.01")
         set(NASM_DESTINATION_PATH ${VCPKG_DOWNLOADS_PATH}/nasm-${NASM_VERSION}-win64.zip)
-        set(NASM_DOWNLOAD_URL "https://github.com/yuzu-mirror/ext-windows-bin/raw/master/nasm/nasm-${NASM_VERSION}-win64.zip")
+        set(NASM_DOWNLOAD_URL "https://gitlab.com/suyu-emu/ext-windows-bin/raw/master/nasm/nasm-${NASM_VERSION}-win64.zip")
 
         if (NOT EXISTS ${NASM_DESTINATION_PATH})
             file(DOWNLOAD ${NASM_DOWNLOAD_URL} ${NASM_DESTINATION_PATH} SHOW_PROGRESS STATUS NASM_STATUS)
@@ -620,7 +622,7 @@ if (NOT CLANG_FORMAT)
         message(STATUS "Clang format not found! Downloading...")
         set(CLANG_FORMAT "${PROJECT_BINARY_DIR}/externals/clang-format${CLANG_FORMAT_POSTFIX}.exe")
         file(DOWNLOAD
-            https://github.com/yuzu-mirror/ext-windows-bin/raw/master/clang-format${CLANG_FORMAT_POSTFIX}.exe
+            https://gitlab.com/suyu-emu/ext-windows-bin/raw/master/clang-format${CLANG_FORMAT_POSTFIX}.exe
             "${CLANG_FORMAT}" SHOW_PROGRESS
             STATUS DOWNLOAD_SUCCESS)
         if (NOT DOWNLOAD_SUCCESS EQUAL 0)
@@ -720,13 +722,13 @@ endif()
 # https://specifications.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
 # https://www.freedesktop.org/software/appstream/docs/
 if(ENABLE_QT AND UNIX AND NOT APPLE)
-    install(FILES "dist/org.yuzu_emu.yuzu.desktop"
+    install(FILES "dist/org.suyu_emu.suyu.desktop"
             DESTINATION "share/applications")
-    install(FILES "dist/yuzu.svg"
+    install(FILES "dist/suyu.svg"
             DESTINATION "share/icons/hicolor/scalable/apps"
-            RENAME "org.yuzu_emu.yuzu.svg")
-    install(FILES "dist/org.yuzu_emu.yuzu.xml"
+            RENAME "org.suyu_emu.suyu.svg")
+    install(FILES "dist/org.suyu_emu.suyu.xml"
             DESTINATION "share/mime/packages")
-    install(FILES "dist/org.yuzu_emu.yuzu.metainfo.xml"
+    install(FILES "dist/org.suyu_emu.suyu.metainfo.xml"
             DESTINATION "share/metainfo")
 endif()
