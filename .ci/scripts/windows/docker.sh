@@ -7,7 +7,7 @@ set -e
 
 #cd /suyu
 
-wine ccache.exe -sv
+#wine ccache.exe -sv
 
 mkdir -p build && cd build
 wine cmake.exe .. \
@@ -16,13 +16,13 @@ wine cmake.exe .. \
     -DDISPLAY_VERSION="$1" \
     -DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF \
     -DENABLE_QT_TRANSLATION=OFF \
-    -DUSE_CCACHE=ON \
+#    -DUSE_CCACHE=ON \
     -DENABLE_LIBUSB=NO \
     -DSUYU_TESTS=OFF \
     -GNinja
 wine ninja.exe suyu suyu-cmd
 
-wine ccache.exe -sv
+#wine ccache.exe -sv
 
 echo "Tests skipped"
 # TODO: actually run the tests
