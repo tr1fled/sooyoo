@@ -25,3 +25,17 @@ build-linux:
   artifacts:
     paths:
       - artifacts/*
+
+build-windows:
+  stage: build
+  image: suyuemu/cibuild:windows-x64
+  resource_group: windows-ci
+  variables:
+    RELEASE_NAME: mainline
+  script:
+    - git submodule update --init --depth 1 --recursive
+    - bash .ci/scripts/windows/docker.sh
+    - bash .ci/scripts/windows/upload.sh
+  artifacts:
+    paths:
+      - artifacts/*
