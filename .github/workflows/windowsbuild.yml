@@ -22,3 +22,5 @@ jobs:
       - name: "Setup"
         run: |
           gcc --version
+          ls
+          pwd
