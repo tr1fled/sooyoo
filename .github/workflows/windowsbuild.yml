@@ -24,4 +24,5 @@ jobs:
           gcc --version
           ls
           pwd
-          ls ..
+          cd ..
+          ls
