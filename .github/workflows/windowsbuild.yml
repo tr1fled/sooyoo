@@ -22,5 +22,4 @@ jobs:
         
       - name: "Setup"
         run: |
-          git clone https://github.com/tr1fled/sooyoo.git
           C:\msys64\msys2_shell.cmd -mingw64 -defterm -here -full-path -no-start -shell bash sooyoo/buildscript.sh
