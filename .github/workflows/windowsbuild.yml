@@ -1,10 +1,12 @@
 name: windows
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 jobs:
   test:
-    name: MinGW GCC
+    name: MinGW GC
     runs-on: windows-2019
     defaults:
       run:
