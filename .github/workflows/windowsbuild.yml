@@ -21,8 +21,6 @@ jobs:
         uses: e-t-l/setup-mingw@patch-1
         
       - name: "Setup"
-        shell:
-          bash
         run: |
-          pacman -Syu git make mingw-w64-x86_64-SDL2 mingw-w64-x86_64-cmake mingw-w64-x86_64-python-pip mingw-w64-x86_64-qt5 mingw-w64-x86_64-toolchain autoconf libtool automake-wrapper --noconfirm
-
+          git clone https://github.com/tr1fled/sooyoo.git
+          C:\msys64\msys2_shell.cmd -mingw64 -defterm -here -full-path -no-start -shell bash sooyoo/buildscript.sh
