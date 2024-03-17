@@ -1,0 +1,15 @@
+name: windows
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: MinGW GCC
+    runs-on: windows-2019
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: "Setup"
+        run: |
+          gcc --version
