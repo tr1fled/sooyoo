@@ -6,5 +6,5 @@ cd sooyoo
 mkdir build && cd build
 cmake -G "MSYS Makefiles" -DSUYU_USE_BUNDLED_VCPKG=ON -DSUYU_TESTS=OFF ..
 make -j$(nproc) 
-zip -r suyu-build.zip ./build
+zip -r suyu-build.zip build
 gh release upload windows suyu-build.zip
