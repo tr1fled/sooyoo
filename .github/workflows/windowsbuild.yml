@@ -6,7 +6,8 @@ on:
 
 jobs:
   test:
-    name: MinGW GC
+    permissions: write-all
+    name: Build suyu for Windows
     runs-on: windows-latest
     steps:
       - name: Install Vulkan SDK
