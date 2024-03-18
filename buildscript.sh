@@ -3,8 +3,9 @@ git submodule update --init --recursive
 echo 'PATH=/mingw64/bin:$PATH' >> ~/.bashrc
 echo 'PATH=$(readlink -e /c/VulkanSDK/*/Bin/):$PATH' >> ~/.bashrc
 cd sooyoo
-mkdir build && cd build
-cmake -G "MSYS Makefiles" -DSUYU_USE_BUNDLED_VCPKG=ON -DSUYU_TESTS=OFF ..
+#mkdir build && cd build
+#cmake -G "MSYS Makefiles" -DSUYU_USE_BUNDLED_VCPKG=ON -DSUYU_TESTS=OFF ..
+cd externals
 make -j$(nproc) 
-zip -r ../suyu-build.zip .
-gh release upload windows ../suyu-build.zip
+zip -r ../suyu-externals.zip .
+gh release upload debug ../suyu-externals.zip
